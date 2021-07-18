@@ -1,46 +1,46 @@
-{% extends "base.html" %}
+{% extends "base.html" % }
 
-{% block content %}
-  <br>
+{% block content % }
+   <br >
 
-  <div class = "wierd_link">
-    <a href = "/info" >Что я тут делал? </a> <-- ссылка для пояснения задачи данного проекта
-  </div>
+    <div class = "wierd_link" >
+        <a href = "/info" > Что я тут делал? < /a > <-- ссылка для пояснения задачи данного проекта
+    < / div >
 
-  <div class = "row" style = "margin: 2%">
-    <div class = "col-4" align="center">
-      <h2>Название товара</h2>
-    </div>
-    <div class = "col-2" align="center">
-      <h4>Новых отзывов</h4>
-    </div>
-    <div class = "col-2" align="center">
-      <h5>"очень" полезная статистика</h5>
-    </div>
-    <div class = "col-2" align="center">
-      <h5>"очень" полезная статистика</h5>
-    </div>
-  </div>
+    <div class = "row" style = "margin: 2%" >
+        <div class = "col-4" align = "center" >
+            <h2 > Название товара < /h2 >
+        < / div >
+        <div class = "col-2" align = "center" >
+            <h4 > Новых отзывов < /h4 >
+        < / div >
+        <div class = "col-2" align = "center" >
+            <h5 > "очень" полезная статистика < /h5 >
+        < / div >
+        <div class = "col-2" align = "center" >
+            <h5 > "очень" полезная статистика < /h5 >
+        < / div >
+    < / div >
 
-  {% for stock in stocks_data %}
-    <div class = "row">
-      <div class = "col-4" align="center">
-        <h2><a href="/info_stock/{{stock['id']}}">{{stock['name']}}</a></h2>
-      </div>
-      <div class = "col-2" align="center">
-        <h4>{{stock['new_messages']}}</h4>
-      </div>
+    {% for stock in stocks_data % }
+       <div class = "row" >
+            <div class = "col-4" align = "center" >
+                <h2 > <a href = "/info_stock/{{stock['id']}}" > {{stock['name']}} < /a > < / h2 >
+            < / div >
+            <div class = "col-2" align = "center" >
+                <h4 > {{stock['new_messages']}} < /h4 >
+            < / div >
 
-    </div>
-  {% endfor %}
+        < /div >
+    { % endfor % }
 
-  <form method="POST" action="/new_stock" class = "add_new">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Название товара, который будем отслеживать" value="" name="name">
-      <input type="text" class="form-control" placeholder="Ссылка на товар в lamoda (пока только этот маркетплейс)" value="" name="link">
-      <!-- <input type="hidden" value="-1" name="id">-->
-      <button type="submit" class="btn btn-primary">Добавить товар</button>
-    </div>
-  </form>
+    <form method = "POST" action="/new_stock" class = "add_new">
+        <div class = "input-group mb-3">
+            <input type = "text" class="form-control" placeholder="Название товара, который будем отслеживать" value="" name="name">
+            <input type = "text" class="form-control" placeholder="Ссылка на товар в lamoda (пока только этот маркетплейс)" value="" name="link">
+            <!-- < input type ="hidden" value="-1" name="id">-->
+            <button type = "submit" class="btn btn-primary">Добавить товар</button>
+        < /div >
+    < /form >
 
-{% endblock %}
+{ % endblock % }

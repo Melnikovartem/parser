@@ -5,9 +5,10 @@ from . import db
 new_stock_app = Blueprint('new_stock_app', __name__)
 atr_req = ['name', 'link']
 
+
 @new_stock_app.route('/new_stock', methods=['POST'])
 def new_stock():
-    data={}
+    data = {}
     for form in atr_req:
         if form in request.form:
             data[form] = request.form.get(form)

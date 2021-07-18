@@ -4,6 +4,7 @@ from .config import config
 
 db = SQLAlchemy()
 
+
 def create_app():
     app = Flask(__name__)
 
