@@ -7,8 +7,18 @@ Using flask cli to boot everything up
 
 Migration:
 
+```bash
+$ flask db init
+$ flask db migrate
+$ flask db upgrade
+```
+
 Server boot (from main folder):
 
+```bash
+$ export FLASK_APP=server
+$ flask run
+```
 
 
 ## What is this about (rus.)
