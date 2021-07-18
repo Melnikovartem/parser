@@ -27,5 +27,7 @@ def create_app():
     from .main import main_app as main_blueprint
     app.register_blueprint(main_blueprint)
 
-
+    from flask_migrate import Migrate
+    migrate = Migrate(app, db)
+    
     return app
