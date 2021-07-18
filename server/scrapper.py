@@ -17,5 +17,4 @@ def scraping_url(url):
         info["author"] = comment.find("span", {"class": "rev__node-head_author"}).text
         info["date"] = comment.find("span", {"class": "rev__node-date"}).text
         data.append(info)
-        print(info)
     return data

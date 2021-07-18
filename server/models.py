@@ -19,6 +19,7 @@ class Stock(db.Model):
         data={}
         data['id']=self.id
         data['name']=self.name
+        data['links'] = {'lamoda': self.link_lamoda}
         data['new_messages']=Comment.query.filter_by(stock_id=self.id, new=1).count()
         return data
 
@@ -32,6 +33,9 @@ class Stock(db.Model):
 
                 db.session.add(new_comment)
                 db.session.commit()
+
+    def get_comments(self):
+        return list(map(lambda x: x.__to_dict__(), Comment.query.filter_by(stock_id=self.id).all()))
 
 # храним текст коммента и к какому товру он принадлежит
 class Comment(db.Model):
@@ -49,9 +53,9 @@ class Comment(db.Model):
 
     def __to_dict__ (self):
         data={}
-        data['stock_id']=self.name
-        data['text']=self.name
-        data['type']=self.name
-        data['date']=self.name
-        data['author']=self.name
+        data['stock_id']=self.stock_id
+        data['text']=self.text
+        data['type']=self.type
+        data['date']=self.date
+        data['author']=self.author
         return data

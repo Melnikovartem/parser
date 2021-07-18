@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 style = "margin: 1rem; text-align: center; display: block"> {{ data["name"]}} </h2>
+  <form method="POST" action="/edit_stock/{{ data["id"] }}" class = "add_new">
+
+      {% for link in  data["links"] %}
+        <div class="input-group mb-3">
+            <h4 style = "margin-left: 1rem; margin-right: 1rem; text-align: center; margin-bottom: 0px;">{{ link }}: </h4>
+            <input class="form-control" type="text" placeholder="{{ data["links"][link] }}" name="ссылка для " value="{{ data["links"][link] }}" id="{{ link }}">
+
+          </div>
+      {% endfor %}
+
+      <!-- <div class="row">
+        <div class="col" align="center">
+          <button style="margin-top:20px" type="submit" class="btn-lg btn btn-primary">Сохранить изменения</button>
+        </div>
+      </div> -->
+  </form>
+
+  <div class="row">
+    <div class="col">
+      <h2><a href="/" style="margin:10px">Комментарии:</a></h2>
+    </div>
+  </div>
+
+  {% for comment in comments %}
+    <div class="row">
+      <div class="col">
+        <h2><a href="/" style="margin:10px">comment</a></h2>
+      </div>
+    </div>
+  {% endfor %}
+
+  <div class="row">
+    <div class="col">
+      <h3><a href="/" style="margin:1rem">Домой</a></h3>
+    </div>
+  </div>
+
+
+
+
+  <!-- <form method="GET" action="/delete_stock/{{id}}" align="center" style="margin:20px">
+    <button type="submit" class="btn-lg btn btn-danger">Удалить товар</button>
+  </form> -->
+{% endblock %}

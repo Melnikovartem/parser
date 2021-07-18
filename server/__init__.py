@@ -30,6 +30,9 @@ def create_app():
     from .new_stock import new_stock_app as new_stock_blueprint
     app.register_blueprint(new_stock_blueprint)
 
+    from .info_stock import info_stock_app as info_stock_blueprint
+    app.register_blueprint(info_stock_blueprint)
+
     from flask_migrate import Migrate
     migrate = Migrate(app, db)
 
