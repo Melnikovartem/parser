@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, Blueprint
-from .models import Stock, Comment
 
 main_app = Blueprint('main_app', __name__)
 
