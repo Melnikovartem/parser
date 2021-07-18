@@ -1,8 +1,8 @@
-"""empty message
+"""Cool new reboot
 
-Revision ID: 8d209c37fff1
+Revision ID: be8b64b4135d
 Revises: 
-Create Date: 2021-07-18 22:28:16.142605
+Create Date: 2021-07-19 00:15:42.487856
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8d209c37fff1'
+revision = 'be8b64b4135d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,14 +24,15 @@ def upgrade():
     sa.Column('text', sa.String(length=1000), nullable=True),
     sa.Column('stars', sa.Integer(), nullable=True),
     sa.Column('type', sa.Integer(), nullable=True),
+    sa.Column('date', sa.String(length=100), nullable=True),
+    sa.Column('author', sa.String(length=100), nullable=True),
     sa.Column('new', sa.Boolean(), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('stock_id')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('stock',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=True),
-    sa.Column('link_wildberries', sa.String(length=100), nullable=True),
+    sa.Column('link_lamoda', sa.String(length=100), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
