@@ -6,7 +6,7 @@
 
       {% for link in  data["links"] %}
         <div class="input-group mb-3">
-            <h4 style = "margin-left: 1rem; margin-right: 1rem; text-align: center; margin-bottom: 0px;">{{ link }}: </h4>
+            <h4><a href = "{{ data["links"][link] }}" style = "margin-left: 1rem; margin-right: 1rem; text-align: center; margin-bottom: 0px;">{{ link }}: </a></h4>
             <input class="form-control" type="text" placeholder="{{ data["links"][link] }}" name="ссылка для " value="{{ data["links"][link] }}" id="{{ link }}">
 
           </div>
@@ -21,14 +21,19 @@
 
   <div class="row">
     <div class="col">
-      <h2><a href="/" style="margin:10px">Комментарии:</a></h2>
+      <h2 style="margin: 1rem; margin-left: 3rem">Комментарии:</h2>
     </div>
   </div>
 
   {% for comment in comments %}
-    <div class="row">
-      <div class="col">
-        <h2><a href="/" style="margin:10px">comment</a></h2>
+    <div style="margin: 1rem; margin-bootom: .25rem; margin-top: 2rem">
+      <div class = "row" style = "margin-left: 1rem; display: block">
+        <div class="col">
+          <h5 style = "display: inline; margin-right: .5rem"> {{ comment["author"] }}</h5> {{ comment["date"] }}
+        </div>
+      </div>
+      <div class="row">
+        <p style="margin: 1rem"> {{ comment["text"] }}</p>
       </div>
     </div>
   {% endfor %}
